@@ -1,0 +1,17 @@
+{
+  "name": "nelbot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Kamitsu",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon bot.js"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  },
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0"
+  }
+}
