@@ -5,7 +5,7 @@
   "author": "Kamitsu",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon bot.js"
+    "start": "nodemon index.js"
   },
   "devDependencies": {
     "nodemon": "^2.0.6"
