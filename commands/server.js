@@ -1,9 +1,15 @@
+const Discord = require("discord.js");
+
 module.exports = {
   name: "server",
   description: "Information about the current server.",
   execute(message, args) {
-    message.channel.send(
-      `The server's name is: ${message.guild.name}\nTotal members: ${message.guild.memberCount}`
-    );
+    const serverEmbed = new Discord.MessageEmbed()
+      .setColor("#0099ff")
+      .setTitle("Hero Association")
+      .setDescription("Server for the homies")
+      .addField("Total members", message.guild.memberCount, true);
+
+    message.channel.send(serverEmbed);
   },
 };
