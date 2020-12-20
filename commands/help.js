@@ -4,7 +4,7 @@ module.exports = {
   name: "help",
   description: "List of all the available commands",
   aliases: ["commands"],
-  usage: "[command name]",
+  usage: "<command name>",
   cooldown: 5,
   execute(message, args) {
     const data = [];
@@ -12,10 +12,10 @@ module.exports = {
 
     // list of commands DM
     if (!args.length) {
-      data.push("Here's a list of all the commands:");
+      data.push("**Here's a list of all the commands:**");
       data.push(commands.map((command) => command.name).join(", "));
       data.push(
-        `\nYou can send \`${process.env.PREFIX}help [command name]\` to get info on a specific command!`
+        `\nYou can send \`${process.env.PREFIX}help <command name>\` to get info on a specific command!`
       );
 
       return message.author

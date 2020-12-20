@@ -1,18 +1,12 @@
 module.exports = {
   name: "poll",
-  description: "Create a poll with two options to choose from",
-  execute(message, args) {
-    const question = [];
+  description: "Create a YES / NO poll",
+  usage: "<Poll question>",
+  async execute(message, args, client) {
+    const YES = "429016777889153029"; // Drake2
+    const NO = "429095438931460136"; // Drake1
 
-    for (let i = 0; i < args.length; i++) {
-      // create the question string, option 1, and option 2
-      if (args[i].includes("?")) {
-        question.push(args[i].substring(0, args.length - 1));
-        return;
-      }
-
-      question.push(args[i]);
-    }
-    console.log(question);
+    await message.react(YES);
+    await message.react(NO);
   },
 };

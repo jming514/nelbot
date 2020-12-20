@@ -1,6 +1,7 @@
 module.exports = {
   name: "prune",
   description: "delete up to 99 messages",
+  usage: "<number of messages>",
   execute(message, args) {
     if (message.author.id === "99748382309879808") {
       const amount = parseInt(args[0]) + 1;
