@@ -11,4 +11,3 @@ All commands must have the prefix `!`
 | poll | React to a message with 2 emotes. Meant for polling | \<message>
 | id | Return the ID of emote | \<emote name>
 |  |  |  |
-
