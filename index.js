@@ -3,6 +3,7 @@ require("dotenv").config();
 const fs = require("fs");
 const Discord = require("discord.js");
 
+const PREFIX = "!";
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 const commandFiles = fs
@@ -23,13 +24,9 @@ client.once("ready", () => {
 
 client.on("message", (message) => {
   // check if message starts with "!" or if author is a bot
-  if (!message.content.startsWith(process.env.PREFIX) || message.author.bot)
-    return;
+  if (!message.content.startsWith(PREFIX) || message.author.bot) return;
 
-  const args = message.content
-    .slice(process.env.PREFIX.length)
-    .trim()
-    .split(/ +/);
+  const args = message.content.slice(PREFIX.length).trim().split(/ +/);
   const commandName = args.shift().toLowerCase();
 
   // find command name/alias
