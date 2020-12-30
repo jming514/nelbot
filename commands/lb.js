@@ -1,5 +1,3 @@
-const Discord = require("discord.js");
-
 module.exports = {
   name: "lb",
   description: "Server leaderboard",

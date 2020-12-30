@@ -1,5 +1,3 @@
-const Discord = require("discord.js");
-
 module.exports = {
   name: "motd",
   description: "Set the message of the day",
