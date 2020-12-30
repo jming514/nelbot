@@ -18,7 +18,7 @@ for (const file of commandFiles) {
 const cooldowns = new Discord.Collection();
 
 client.once("ready", () => {
-  client.user.setActivity("white noise", { type: 2 });
+  // client.user.setActivity("white noise", { type: 2 });
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
