@@ -20,16 +20,14 @@ describe("messageHandler", () => {
             send: jest.fn(),
         },
     };
-    it("should return if author of message is bot", () => __awaiter(void 0, void 0, void 0, function* () {
-        yield message_1.messageHandler(message);
-        expect(null);
+    it("should return undefined if author of message is bot", () => __awaiter(void 0, void 0, void 0, function* () {
+        const returnMessage = yield message_1.messageHandler(message);
+        expect(returnMessage).toBeUndefined();
     }));
-    it("should send a message to the channel", () => __awaiter(void 0, void 0, void 0, function* () {
+    it("should return undefined if message doesn't use prefix", () => __awaiter(void 0, void 0, void 0, function* () {
+        const returnMessage = yield message_1.messageHandler(message);
         message.author.bot = false;
-        message.content = "hello";
-        yield message_1.messageHandler(message);
-        expect(message.channel.send).toHaveBeenCalledTimes(1);
-        expect(message.channel.send).toBeCalledWith("Hello, world!");
+        expect(returnMessage).toBeUndefined();
     }));
 });
 //# sourceMappingURL=message.test.js.map

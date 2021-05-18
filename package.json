@@ -9,6 +9,7 @@
     "dev": "nodemon dist/index.js",
     "watch": "tsc -w",
     "build": "tsc",
+    "postinstall": "npm run build",
     "test": "jest",
     "test-watch": "jest --watch"
   },

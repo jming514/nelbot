@@ -12,17 +12,25 @@ describe("messageHandler", () => {
     },
   } as unknown as Message;
 
-  it("should return if author of message is bot", async () => {
-    await messageHandler(message);
-    expect(null);
+  it("should return undefined if author of message is bot", async () => {
+    const returnMessage = await messageHandler(message);
+
+    expect(returnMessage).toBeUndefined();
   });
 
-  it("should send a message to the channel", async () => {
+  it("should return undefined if message doesn't use prefix", async () => {
+    const returnMessage = await messageHandler(message);
     message.author.bot = false;
-    message.content = "hello";
 
-    await messageHandler(message);
-    expect(message.channel.send).toHaveBeenCalledTimes(1);
-    expect(message.channel.send).toBeCalledWith("Hello, world!");
+    expect(returnMessage).toBeUndefined();
   });
+
+  // it("should send a message to the channel", async () => {
+  //   message.author.bot = false;
+  //   message.content = "!hello";
+
+  //   await messageHandler(message);
+  //   expect(message.channel.send).toHaveBeenCalledTimes(1);
+  //   expect(message.channel.send).toBeCalledWith("Hello, world!");
+  // });
 });

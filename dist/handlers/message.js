@@ -8,13 +8,40 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.messageHandler = void 0;
+const dotenv_1 = __importDefault(require("dotenv"));
+const command_1 = require("./command");
+const consola_1 = __importDefault(require("consola"));
+dotenv_1.default.config();
+const commands = command_1.commandHandler();
 const messageHandler = (message) => __awaiter(void 0, void 0, void 0, function* () {
-    if (message.author.bot)
+    var _a;
+    if (!message.content.startsWith(process.env.PREFIX) ||
+        message.author.bot) {
         return;
-    if (message.content === "hello") {
-        message.channel.send("Hello, world!");
+    }
+    const args = message.content
+        .slice(process.env.PREFIX.length)
+        .trim()
+        .split(/ +/);
+    const commandName = (_a = args.shift()) === null || _a === void 0 ? void 0 : _a.toLowerCase();
+    const command = (yield commands).get(commandName) ||
+        (yield commands).find((c) => {
+            var _a;
+            (_a = c.aliases) === null || _a === void 0 ? void 0 : _a.includes(commandName);
+        });
+    if (!command)
+        return;
+    try {
+        command.execute(message, args);
+    }
+    catch (error) {
+        consola_1.default.error(error);
+        message.reply("There was an error trying to execute that command!");
     }
 });
 exports.messageHandler = messageHandler;
