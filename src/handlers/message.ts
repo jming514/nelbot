@@ -10,9 +10,8 @@ export const messageHandler = async (message: Message) => {
   if (
     !message.content.startsWith(process.env.PREFIX as string) ||
     message.author.bot
-  ) {
+  )
     return;
-  }
 
   const args: string[] = message.content
     .slice(process.env.PREFIX!.length)

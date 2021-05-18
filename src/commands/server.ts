@@ -2,7 +2,7 @@ import { Message, MessageEmbed } from "discord.js";
 
 export const name = "server";
 export const description = "Information about the current server.";
-export const execute = (
+export const execute = async (
   message: Message,
   _args: string[]
 ): Promise<Message | Message[]> => {
