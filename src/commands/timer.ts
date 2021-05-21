@@ -13,8 +13,8 @@ export const execute = async (
 
   let duration: number = parseInt(args[0].replace(/\D/g, ""));
 
-  if (duration > 60 || duration < 1)
-    return message.channel.send("Please enter a number between 1 and 60.");
+  if (duration > 240 || duration < 1)
+    return message.channel.send("Please enter a number between 1 and 240.");
 
   duration = duration * 60000;
 
