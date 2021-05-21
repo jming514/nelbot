@@ -21,4 +21,5 @@ export const execute = async (
   const msg = `${message.member} ${args.slice(1).join(" ")}`;
 
   setTimeout(() => message.channel.send(msg), duration);
+  await message.channel.send("Timer set!");
 };

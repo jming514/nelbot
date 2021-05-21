@@ -4,9 +4,16 @@ All commands must have the prefix `!`
 
 ## Setup
 
-Create a .env and put your bot token inside.
-
+Create a .env with the following information
+```
+BOT_TOKEN=token from discord developer portal
+PREFIX=character at the beginning of messsage to trigger bot commands
+```
 ## Planned 
+
+- timer
+
+   Include a reply when timer to created to show the command worked
 
 - countdown
 
@@ -18,12 +25,19 @@ Create a .env and put your bot token inside.
 
    This is for updating emotes with the halloween/christmas/seasonal versions.
 
+- prune
+  
+  Convert old prune command from javascript to typescript
+
+
 ## Commands
 
-| Name | Description | Arguments |
-| ---- | ----------- | --------- |
-| server | Information about the current server. |  |
-| prune | Delete between 1 and 99 messages | \<number> |
-| poll | React to a message with 2 emotes. Meant for polling | \<message>
-| id | Return the ID of emote | \<emote name>
-|  |  |  |
+| Name   | Description                                         | Arguments                       |
+| ------ | --------------------------------------------------- | ------------------------------- |
+| server | Information about the current server.               |                                 |
+| poll   | React to a message with 2 emotes. Meant for polling | \<message>                      |
+| timer  | Set a timer for a ping to yourself with message     | \<duration: integer> \<message> |
+|        |                                                     |                                 |
+|        |                                                     |                                 |
+|        |                                                     |                                 |
+|        |                                                     |                                 |

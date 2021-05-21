@@ -1,9 +1,14 @@
 import { Message } from "discord.js";
 import { messageHandler } from "../../handlers/message";
 
-jest.useFakeTimers();
+jest.useFakeTimers("modern");
 
 describe("command: timer", () => {
+  beforeEach(() => {
+    jest.resetModules();
+    jest.resetAllMocks();
+  });
+
   const message: Message = {
     content: "!timer 1 hello",
     author: {
@@ -13,6 +18,14 @@ describe("command: timer", () => {
       send: jest.fn(),
     },
   } as unknown as Message;
+
+  it("should send a message after elapsed time", async () => {
+    await messageHandler(message);
+
+    expect(message.channel.send).toHaveBeenCalledWith("Timer set!");
+    jest.runAllTimers();
+    expect(message.channel.send).toBeCalledTimes(2);
+  });
 
   it("should ask for a valid number", async () => {
     message.content = "!timer 2r";
@@ -30,15 +43,4 @@ describe("command: timer", () => {
       "Please include a message."
     );
   });
-
-  // it("should send a message after elapsed time", async () => {
-  //   await messageHandler(message);
-
-  //   // const duration = 1000;
-  //   const callback = () => {
-  //     expect(message.channel.send).toHaveBeenCalledTimes(2);
-  //   };
-
-  //   setTimeout(callback);
-  // });
 });
