@@ -17,6 +17,10 @@ PREFIX=character at the beginning of messsage to trigger bot commands
 
 - help command
 
+- global version of timer command
+
+- move prefix commands to slash commands
+
 
 
 ## Commands

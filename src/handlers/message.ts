@@ -7,10 +7,7 @@ dotenv.config();
 const commands = commandHandler();
 
 export const messageHandler = async (message: Message) => {
-  if (
-    !message.content.startsWith(process.env.PREFIX as string) ||
-    message.author.bot
-  )
+  if (!message.content.startsWith(process.env.PREFIX!) || message.author.bot)
     return;
 
   const args: string[] = message.content
@@ -22,13 +19,11 @@ export const messageHandler = async (message: Message) => {
   // FIXME: Change the any type
   const command =
     (await commands).get(commandName) ||
-    (await commands).find((c): any => {
+    (await commands).find((c: TCommand): any => {
       c.aliases?.includes(commandName);
     });
 
   if (!command) return;
-  // console.log("commandName:", commandName);
-  // console.log("command:", command);
 
   try {
     command.execute(message, args);

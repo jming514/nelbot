@@ -6,6 +6,7 @@ export const execute = async (
   message: Message,
   _args: string[]
 ): Promise<void> => {
+  // TODO: Make these environment variables instead?
   const YES = "429016777889153029"; // Drake2
   const NO = "429095438931460136"; // Drake1
 

@@ -8,7 +8,7 @@ export const execute = async (
   message: Message,
   args: string[]
 ): Promise<void | Message> => {
-  if (message.author.id === (process.env.ADMIN_ID as string)) {
+  if (message.author.id === process.env.ADMIN_ID) {
     const amount: number = parseInt(args[0]) + 1;
 
     if (isNaN(amount)) {
