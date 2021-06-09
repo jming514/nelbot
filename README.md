@@ -5,23 +5,23 @@ All commands must have the prefix `!`
 ## Setup
 
 Create a .env with the following information
+
 ```
 BOT_TOKEN=token from discord developer portal
 PREFIX=character at the beginning of messsage to trigger bot commands
 ```
-## Planned 
+
+## Planned
 
 - batch update emotes?
 
-   This is for updating emotes with the halloween/christmas/seasonal versions.
+  This is for updating emotes with the halloween/christmas/seasonal versions.
 
 - help command
 
 - global version of timer command
 
 - move prefix commands to slash commands
-
-
 
 ## Commands
 
@@ -32,5 +32,5 @@ PREFIX=character at the beginning of messsage to trigger bot commands
 | timer  | Set a timer for a ping to yourself with message     | \<duration: integer> \<message> |
 | prune  | Delete up to 98 messages                            | \<number>                       |
 | help   |                                                     |                                 |
-|        |                                                     |                                 |
+| farm   | counter for kc dkmods                               |                                 |
 |        |                                                     |                                 |

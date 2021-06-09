@@ -3,6 +3,9 @@ declare namespace NodeJS {
     BOT_TOKEN?: string;
     PREFIX?: string;
     ADMIN_ID?: string;
+    DRAKE1: string;
+    DRAKE2: string;
+    DKMods: string;
   }
 }
 
